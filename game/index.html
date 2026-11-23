@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EMBERFALL — a duel of three houses</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="app">
+  <section id="screen-title" class="screen">
+    <div class="crest"><span class="shape tri"></span><span class="shape cir"></span><span class="shape dia"></span></div>
+    <h1>EMBERFALL</h1>
+    <p class="sub">a duel of three houses</p>
+    <p class="lore">Ember burns. Tide endures. Thorn entangles.<br>First hero to fall loses the vale.</p>
+    <div class="rules-box">
+      <p><b>How to play:</b> Both heroes start at 20 life. Energy starts at 1, grows +1 each turn (cap 10) and refills.</p>
+      <p>Click a card (or press 1–5) to play it. Click your ready creature, then a target, to attack. Enter ends your turn.</p>
+      <p><b>Guard</b> must be attacked first. <b>Rush</b> can attack the turn it lands. Spells burn, heal, or draw.</p>
+    </div>
+    <button id="btn-start" class="big-btn">▶ &nbsp;Start Duel</button>
+    <p class="hint">Mouse + keyboard &nbsp;•&nbsp; Houses: <span class="ember-t">▲ Ember</span> <span class="tide-t">● Tide</span> <span class="thorn-t">◆ Thorn</span></p>
+  </section>
+  <section id="screen-game" class="screen hidden">
+    <header id="topbar">
+      <div class="hero enemy-hero" id="enemy-hero"><span class="hero-name">♛ Opponent — Lady Vex</span><span class="life" id="enemy-life">♥ 20</span><span class="energy" id="enemy-energy">◆ 0</span></div>
+      <div class="turn-box"><div id="turn-label">Your Turn</div><div id="log">The duel begins.</div></div>
+      <button id="btn-end" class="end-btn">End Turn ⏎</button>
+    </header>
+    <div id="enemy-hand" class="hand enemy-hand"></div>
+    <div id="enemy-board" class="board"></div>
+    <div class="divider"><span>— the vale —</span></div>
+    <div id="player-board" class="board"></div>
+    <div id="player-hand" class="hand"></div>
+    <footer id="bottombar">
+      <div class="hero player-hero" id="player-hero"><span class="hero-name">♟ You — Ashen Knight</span><span class="life" id="player-life">♥ 20</span><span class="energy" id="player-energy">◆ 1 / 1</span></div>
+      <p class="hint small">Click card to play • Click creature then target to attack • Keys 1–5 play • Enter = End Turn</p>
+    </footer>
+  </section>
+  <section id="screen-win" class="screen hidden end-screen win-screen">
+    <div class="burst">✦ ✦ ✦</div><h1 class="win-title">VICTORY!</h1>
+    <p class="sub">The enemy hero falls. Emberfall is yours.</p>
+    <p id="win-stats" class="stats">You won the duel.</p>
+    <button class="big-btn btn-again">↻ &nbsp;Play Again</button>
+  </section>
+  <section id="screen-loss" class="screen hidden end-screen loss-screen">
+    <div class="burst dim">✧ ✧ ✧</div><h1 class="loss-title">DEFEAT</h1>
+    <p class="sub">Your hero falls in the vale.</p>
+    <p id="loss-stats" class="stats">The opponent won this duel.</p>
+    <button class="big-btn btn-again">↻ &nbsp;Play Again</button>
+  </section>
+</div>
+<script src="js/cards.js"></script>
+<script src="js/state.js"></script>
+<script src="js/ai.js"></script>
+<script src="js/render.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
